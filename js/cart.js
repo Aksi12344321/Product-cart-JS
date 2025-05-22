@@ -62,5 +62,8 @@ window.addEventListener("click", function (event) {
 
     //Отображение статуса корзины
     toggleCartStatus();
+
+    //Пересчет стоимости товаров в корзине
+    calcCartPriceAndDelivery();
   }
 });
