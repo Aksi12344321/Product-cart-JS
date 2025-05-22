@@ -3,7 +3,7 @@ window.addEventListener("click", function (event) {
   let counter;
 
   //Проверяем клик строго по кнопкам Плюс или Минус
-  if (event.target.dataset.action === "plus" || event.target.dataset.action === "minus") {
+  if (event.target.hasAttribute("data-action")) {
     //Находим ближайшего родителя элемента, по кот. кликнули с определенным селектором
     const counterWrapper = event.target.closest(".counter-wrapper");
     //Находим сам счетчик, который находится внутри этого родителя
