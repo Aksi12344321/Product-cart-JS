@@ -18,9 +18,15 @@ window.addEventListener("click", function (event) {
       counter: card.querySelector("[data-counter]").innerText,
     };
 
-    //Собранные данные подставим в шаблон товара в корзине
+    //Проверяем, есть ли уже такой товар в корзине
+    const itemInCart = cartWrapper.querySelector(`[data-id = "${productInfo.id}"]`);
 
-    const cartItemHtml = `<!-- Cart item -->
+    if (itemInCart) {
+      const counterElement = itemInCart.querySelector("[data-counter]");
+      counterElement.innerText = parseInt(counterElement.innerText) + parseInt(productInfo.counter);
+    } else {
+      //Собранные данные подставим в шаблон товара в корзине
+      const cartItemHtml = `<!-- Cart item -->
                 <div class="cart-item" data-id="${productInfo.id}">
                   <div class="cart-item__top">
                     <div class="cart-item__img">
@@ -47,8 +53,11 @@ window.addEventListener("click", function (event) {
                   </div>
                 </div>`;
 
-    //Отображение товара в корзине
+      //Отображение товара в корзине
 
-    cartWrapper.insertAdjacentHTML("beforeend", cartItemHtml);
+      cartWrapper.insertAdjacentHTML("beforeend", cartItemHtml);
+    }
+    //Сбрасываем счетчик на "1"
+    card.querySelector("[data-counter]").innerText = "1";
   }
 });
