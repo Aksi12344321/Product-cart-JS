@@ -59,5 +59,8 @@ window.addEventListener("click", function (event) {
     }
     //Сбрасываем счетчик на "1"
     card.querySelector("[data-counter]").innerText = "1";
+
+    //Отображение статуса корзины
+    toggleCartStatus();
   }
 });
