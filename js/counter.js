@@ -13,6 +13,7 @@ window.addEventListener("click", function (event) {
   //Отслеживаем, является ли элемент, по которому мы кликнули, кнопкой Плюс
   if (event.target.dataset.action === "plus") {
     counter.innerText = ++counter.innerText;
+    calcCartPriceAndDelivery();
   }
 
   //Отслеживаем, является ли элемент, по которому мы кликнули, кнопкой Минус
